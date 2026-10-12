@@ -1,11 +1,8 @@
-import { mvsp } from './mvsp';
-import { caiq } from './caiq';
-import { vsaFull } from './vsa-full';
-import { vsaCore } from './vsa-core';
-
 import type { Questionnaire, QuestionnaireMeta } from './types';
 
-export const allQuestionnaires: Questionnaire[] = [mvsp, caiq, vsaFull, vsaCore];
+// VetFo does not publish pre-filled security questionnaires yet. Add them here
+// (see ./types.ts) and they appear on the page automatically.
+export const allQuestionnaires: Questionnaire[] = [];
 
 export const questionnaireMeta: QuestionnaireMeta[] = allQuestionnaires.map((q) => ({
   name: q.name,

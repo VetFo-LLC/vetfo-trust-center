@@ -2,30 +2,23 @@ import { describe, it, expect } from 'vitest';
 import { trustConfigSchema } from '../src/config/schema';
 import config from '../trust.config';
 
-describe('trust.config.ts (Fimil reference config)', () => {
+describe('trust.config.ts (VetFo config)', () => {
   it('is valid against the schema', () => {
     const result = trustConfigSchema.safeParse(config);
     expect(result.success).toBe(true);
   });
 
   it('has the correct company name', () => {
-    expect(config.company.name).toBe('Fimil');
+    expect(config.company.name).toBe('VetFo');
   });
 
   it('includes all expected control domains', () => {
     const domains = config.controls.map((c) => c.domain);
     expect(domains).toContain('Data Protection');
     expect(domains).toContain('Access Control');
-    expect(domains).toContain('Infrastructure Security');
     expect(domains).toContain('Application Security');
-    expect(domains).toContain('Incident Response');
-    expect(domains).toContain('Business Continuity');
     expect(domains).toContain('Vendor Management');
-    expect(domains).toContain('Governance');
-  });
-
-  it('has at least one framework', () => {
-    expect(config.frameworks.length).toBeGreaterThan(0);
+    expect(domains).toContain('Privacy & Data Rights');
   });
 
   it('has at least one subprocessor', () => {

@@ -37,13 +37,13 @@ jobs:
         with:
           path: .
           format: spdx-json
-          output-file: sbom-fimil-trust.spdx.json
+          output-file: sbom-vetfo-trust.spdx.json
 
       - name: Upload SBOM artifact
         uses: actions/upload-artifact@v7
         with:
-          name: sbom-fimil-trust
-          path: sbom-fimil-trust.spdx.json
+          name: sbom-vetfo-trust
+          path: sbom-vetfo-trust.spdx.json
           retention-days: 90
 
       - uses: actions/upload-pages-artifact@v5

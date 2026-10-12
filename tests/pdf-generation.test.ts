@@ -14,32 +14,8 @@ describe('PDF generation', () => {
     });
   });
 
-  it('should generate MVSP questionnaire PDF', () => {
-    const file = path.join(DOWNLOADS_DIR, 'questionnaire-mvsp.pdf');
-    expect(fs.existsSync(file)).toBe(true);
-    expect(fs.statSync(file).size).toBeGreaterThan(1000);
-  });
-
-  it('should generate CAIQ questionnaire PDF', () => {
-    const file = path.join(DOWNLOADS_DIR, 'questionnaire-caiq.pdf');
-    expect(fs.existsSync(file)).toBe(true);
-    expect(fs.statSync(file).size).toBeGreaterThan(1000);
-  });
-
-  it('should generate VSA Core questionnaire PDF', () => {
-    const file = path.join(DOWNLOADS_DIR, 'questionnaire-vsa-core.pdf');
-    expect(fs.existsSync(file)).toBe(true);
-    expect(fs.statSync(file).size).toBeGreaterThan(1000);
-  });
-
-  it('should generate VSA Full questionnaire PDF', () => {
-    const file = path.join(DOWNLOADS_DIR, 'questionnaire-vsa-full.pdf');
-    expect(fs.existsSync(file)).toBe(true);
-    expect(fs.statSync(file).size).toBeGreaterThan(1000);
-  });
-
   it('should generate compliance report PDF', () => {
-    const file = path.join(DOWNLOADS_DIR, 'fimil-compliance-report.pdf');
+    const file = path.join(DOWNLOADS_DIR, 'vetfo-compliance-report.pdf');
     expect(fs.existsSync(file)).toBe(true);
     expect(fs.statSync(file).size).toBeGreaterThan(1000);
   });
@@ -55,21 +31,8 @@ describe('PDF generation', () => {
   });
 
   it('compliance report should contain company name', () => {
-    const buf = fs.readFileSync(path.join(DOWNLOADS_DIR, 'fimil-compliance-report.pdf'));
+    const buf = fs.readFileSync(path.join(DOWNLOADS_DIR, 'vetfo-compliance-report.pdf'));
     const text = buf.toString('latin1');
-    expect(text).toContain('Fimil');
-  });
-
-  it('compliance report should contain framework names', () => {
-    const buf = fs.readFileSync(path.join(DOWNLOADS_DIR, 'fimil-compliance-report.pdf'));
-    const text = buf.toString('latin1');
-    expect(text).toContain('ISO 27001');
-  });
-
-  it('questionnaire PDF should contain questionnaire name and summary', () => {
-    const buf = fs.readFileSync(path.join(DOWNLOADS_DIR, 'questionnaire-mvsp.pdf'));
-    const text = buf.toString('latin1');
-    expect(text).toContain('MVSP');
-    expect(text).toContain('Response Summary');
+    expect(text).toContain('VetFo');
   });
 });

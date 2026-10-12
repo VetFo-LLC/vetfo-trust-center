@@ -28,7 +28,7 @@ const INDEX_SECTIONS = [
 
 // Generated downloads (scripts/generate-pdfs.ts → public/downloads/).
 const PDFS = [
-  "/downloads/fimil-compliance-report.pdf",
+  "/downloads/vetfo-compliance-report.pdf",
   "/downloads/questionnaire-mvsp.pdf",
   "/downloads/questionnaire-caiq.pdf",
   "/downloads/questionnaire-vsa-full.pdf",
@@ -67,7 +67,7 @@ test.describe("trust-center pages", () => {
 
   test("index has SEO title + description meta", async ({ page }) => {
     await page.goto("/", { waitUntil: "domcontentloaded" });
-    await expect(page).toHaveTitle(/trust|fimil/i);
+    await expect(page).toHaveTitle(/trust|vetfo/i);
     const desc = page.locator('head meta[name="description"]');
     await expect(desc).toHaveAttribute("content", /\S+/);
   });

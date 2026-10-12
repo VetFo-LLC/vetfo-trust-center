@@ -1,6 +1,5 @@
 ---
-// Visual data flow diagram showing how data moves through the Fimil platform.
-// Satisfies MVSP 3.2, CAIQ DSP-05.1, VSA Core SI-5c, VSA Full SO-5d.
+// Visual data flow diagram showing how data moves through the VetFo platform.
 ---
 
 <div class="space-y-3 text-xs" style="font-family: var(--font-heading)">
@@ -13,20 +12,20 @@
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 text-center dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">Customer Repos</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">GitHub · GitLab</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">Mobile Apps</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">iOS · Android</p>
       </div>
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 text-center dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">Users</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Browser · CLI · API</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">Web App</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Browser</p>
       </div>
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 text-center dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">CI/CD Webhooks</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Push · PR events</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">Shared Links</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Vet · groomer · viewer</p>
       </div>
     </div>
   </div>
@@ -43,14 +42,14 @@
   <div
     class="rounded-lg border-2 border-dashed border-sky-300 bg-sky-50/50 p-3 dark:border-sky-800 dark:bg-sky-950/20"
   >
-    <p class="mb-2 text-[10px] tracking-widest text-sky-500 uppercase dark:text-sky-400">
-      Edge — TLS 1.2+ encrypted
-    </p>
+    <p class="mb-2 text-[10px] tracking-widest text-sky-500 uppercase dark:text-sky-400">Sign-in</p>
     <div
       class="rounded-md border border-sky-200 bg-white px-3 py-2 text-center dark:border-sky-800 dark:bg-gray-900"
     >
-      <p class="font-medium text-gray-700 dark:text-gray-300">Cloudflare</p>
-      <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">WAF · CDN · DDoS protection</p>
+      <p class="font-medium text-gray-700 dark:text-gray-300">Kinde</p>
+      <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">
+        OpenID Connect · PKCE · MFA available
+      </p>
     </div>
   </div>
 
@@ -67,7 +66,7 @@
     class="rounded-lg border-2 border-dashed border-sky-300 bg-sky-50/50 p-3 dark:border-sky-800 dark:bg-sky-950/20"
   >
     <p class="mb-3 text-[10px] tracking-widest text-sky-500 uppercase dark:text-sky-400">
-      Fimil Platform — Kubernetes · DigitalOcean
+      VetFo Platform — Railway
     </p>
 
     {/* API + Scanner Pipeline */}
@@ -75,23 +74,25 @@
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 text-center dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">API Gateway</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Auth · RBAC · Rate limits</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">VetFo Server</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">
+          Authorization checks · Rate limits
+        </p>
       </div>
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 text-center dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">Task Queue</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Celery · Redis</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">Background Jobs</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">
+          Reminders · Records requests
+        </p>
       </div>
       <div
         class="rounded-md border border-emerald-300 bg-emerald-50 px-3 py-2.5 text-center dark:border-emerald-800 dark:bg-emerald-950/30"
       >
-        <p class="font-medium text-emerald-700 dark:text-emerald-300">Scanners</p>
-        <p class="mt-0.5 text-[10px] text-emerald-500 dark:text-emerald-400">
-          Ephemeral · --network=none
-        </p>
-        <p class="text-[10px] text-emerald-500 dark:text-emerald-400">Code never persisted</p>
+        <p class="font-medium text-emerald-700 dark:text-emerald-300">AI Features</p>
+        <p class="mt-0.5 text-[10px] text-emerald-500 dark:text-emerald-400">Google Gemini</p>
+        <p class="text-[10px] text-emerald-500 dark:text-emerald-400">Opt-in AI data sharing</p>
       </div>
     </div>
 
@@ -99,7 +100,7 @@
     <div class="flex justify-center py-2 text-gray-300 dark:text-gray-600">
       <div class="flex flex-col items-center">
         <div class="h-2 w-px bg-current"></div>
-        <span class="text-[10px]">scan results &#9660;</span>
+        <span class="text-[10px]">stored data &#9660;</span>
       </div>
     </div>
 
@@ -110,17 +111,19 @@
       >
         <p class="font-medium text-gray-700 dark:text-gray-300">PostgreSQL</p>
         <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">AES-256 at rest</p>
-        <p class="text-[10px] text-gray-400 dark:text-gray-500">Fernet field-level encryption</p>
-        <p class="text-[10px] text-gray-400 dark:text-gray-500">Row-level tenant isolation</p>
+        <p class="text-[10px] text-gray-400 dark:text-gray-500">
+          AES-256-GCM encrypted credentials
+        </p>
+        <p class="text-[10px] text-gray-400 dark:text-gray-500">Per-pet access checks</p>
       </div>
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 dark:border-gray-700 dark:bg-gray-900"
       >
         <p class="font-medium text-gray-700 dark:text-gray-300">Redis</p>
         <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">
-          Session cache · Task broker
+          Sessions · Live notifications
         </p>
-        <p class="text-[10px] text-gray-400 dark:text-gray-500">No persistent PII</p>
+        <p class="text-[10px] text-gray-400 dark:text-gray-500">Cache only</p>
       </div>
     </div>
   </div>
@@ -159,23 +162,22 @@
         <div
           class="flex items-center justify-between rounded-md border border-gray-200 bg-white px-3 py-2 dark:border-gray-700 dark:bg-gray-900"
         >
-          <span class="text-gray-700 dark:text-gray-300">PostHog</span>
-          <span class="text-[10px] text-gray-400 dark:text-gray-500">Analytics · consent-gated</span
-          >
+          <span class="text-gray-700 dark:text-gray-300">Twilio</span>
+          <span class="text-[10px] text-gray-400 dark:text-gray-500">SMS · Support calls</span>
         </div>
       </div>
     </div>
     <div>
       <p class="mb-2 text-[10px] tracking-widest text-gray-400 uppercase dark:text-gray-500">
-        Backup &amp; Archive
+        Document Storage
       </p>
       <div
         class="rounded-md border border-gray-200 bg-white px-3 py-2.5 dark:border-gray-700 dark:bg-gray-900"
       >
-        <p class="font-medium text-gray-700 dark:text-gray-300">Offsite S3</p>
-        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">AES-256 encrypted</p>
-        <p class="text-[10px] text-gray-400 dark:text-gray-500">Nightly automated backups</p>
-        <p class="text-[10px] text-gray-400 dark:text-gray-500">Configurable retention</p>
+        <p class="font-medium text-gray-700 dark:text-gray-300">Cloudflare R2</p>
+        <p class="mt-0.5 text-[10px] text-gray-400 dark:text-gray-500">Uploaded pet documents</p>
+        <p class="text-[10px] text-gray-400 dark:text-gray-500">Support voicemails</p>
+        <p class="text-[10px] text-gray-400 dark:text-gray-500">Private bucket</p>
       </div>
     </div>
   </div>
@@ -194,7 +196,7 @@
       <span
         class="inline-block h-2 w-3 rounded-sm border border-emerald-300 bg-emerald-50 dark:border-emerald-800 dark:bg-emerald-950/30"
       ></span>
-      Ephemeral / isolated
+      Isolated component
     </span>
     <span class="flex items-center gap-1.5">
       <span
@@ -202,6 +204,6 @@
       ></span>
       Component
     </span>
-    <span>All connections encrypted via TLS 1.2+</span>
+    <span>Connections use HTTPS</span>
   </div>
 </div>

@@ -1,21 +1,24 @@
 import { defineConfig } from './src/config/schema';
 import { questionnaireMeta } from './src/questionnaires';
 
+const VERIFIED = 'October 2026';
+
 export default defineConfig({
   company: {
-    name: 'Fimil',
-    legalName: 'Fimil Inc.',
-    logo: '/logo.svg',
-    favicon: '/favicon.svg',
-    website: 'https://fimil.dev',
-    securityEmail: 'security@fimil.dev',
-    privacyEmail: 'privacy@fimil.dev',
+    name: 'VetFo',
+    legalName: 'VetFo, LLC',
+    logo: '/logo.png',
+    favicon: '/favicon.png',
+    website: 'https://vetfo.us',
+    securityEmail: 'security@vetfo.us',
+    privacyEmail: 'security@vetfo.us',
   },
 
   theme: {
     mode: 'dark',
     colors: {
-      primary: '#0EA5E9',
+      primary: '#FFD700',
+      surface: '#000000',
     },
     fonts: {
       heading: 'IBM Plex Mono',
@@ -23,127 +26,9 @@ export default defineConfig({
     },
   },
 
-  frameworks: [
-    {
-      name: 'SOC 2 Type II',
-      status: 'in-progress',
-      description: 'Controls aligned with Trust Services Criteria. Formal audit planned post-seed.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'ISO 27001:2022',
-      status: 'in-progress',
-      description:
-        'ISMS framework established with comprehensive policy suite and controls implemented. Certification planned for 2027.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'NIST CSF 2.0',
-      status: 'in-progress',
-      description:
-        'Comprehensive mapping to the six CSF functions (Govern, Identify, Protect, Detect, Respond, Recover). ~75% coverage implemented; pending external validation.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'CIS Controls v8',
-      status: 'in-progress',
-      description:
-        'Implementation-focused security controls aligned across all 18 control groups. ~70% coverage implemented; formal gap assessment and external validation pending.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'OWASP ASVS Level 2',
-      status: 'in-progress',
-      description:
-        'Application Security Verification Standard covering authentication, session management, access control, input validation, and API security. Core to our identity as an AppSec platform.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'GDPR',
-      status: 'in-progress',
-      description:
-        'EU General Data Protection Regulation. Privacy policy, DPAs, cookie consent with audit trail, and breach notification implemented. DSAR automation and DPIAs in progress.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'CCPA/CPRA',
-      status: 'in-progress',
-      description:
-        'California Consumer Privacy Act and California Privacy Rights Act. Privacy disclosures and cookie consent implemented. Consumer request workflows in progress.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'CSA STAR Level 1',
-      status: 'in-progress',
-      description:
-        'Cloud Security Alliance STAR Level 1 self-assessment completed via CAIQ v4 (261 questions across 17 security domains). Self-assessment published on trust center. Formal registry submission planned.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'FedRAMP Li-SaaS',
-      status: 'in-progress',
-      description:
-        'Low-Impact SaaS authorization prerequisites in progress: System Security Plan, Continuous Monitoring Plan, network boundary documentation, and federal incident reporting procedures completed. FIPS 140-2 KMS integration and 3PAO engagement pending.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'FedRAMP',
-      status: 'planned',
-      description:
-        'Full Federal Risk and Authorization Management Program authorization at Moderate baseline. Requires 3PAO assessment and JAB or Agency authorization.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'Cyber Essentials',
-      status: 'in-progress',
-      description:
-        'UK government-backed cybersecurity certification. All five technical controls implemented: firewalls (Cloudflare WAF), secure configuration (container hardening), user access control (RBAC with MFA), malware protection (scanner isolation, Falco monitoring), and security update management (Dependabot, Trivy). Formal self-assessment certification pending.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-    {
-      name: 'SLSA Framework',
-      status: 'in-progress',
-      description:
-        'Build provenance attestation via GitHub Actions, SPDX SBOMs generated for all container images, and Cosign keyless image signing implemented. Formal SLSA L2 assessment and registry pending.',
-      certifiedDate: null,
-      auditBody: null,
-      reportAvailable: false,
-      lastVerified: 'March 2026',
-    },
-  ],
+  // VetFo holds no third-party security certifications or audit reports today,
+  // so none are listed. Add entries here when that changes.
+  frameworks: [],
 
   controls: [
     {
@@ -151,39 +36,25 @@ export default defineConfig({
       icon: 'shield',
       items: [
         {
-          title: 'Encryption at Rest',
+          title: 'Field-Level Encryption',
           description:
-            'Database encryption at rest via managed provider (AES-256). Application-layer encryption using Fernet (AES-128-CBC with HMAC-SHA256 authentication) for sensitive fields including OAuth tokens and API credentials.',
+            'Sensitive stored credentials, such as API keys and OAuth tokens for connected veterinary systems, are encrypted at the field level with AES-256-GCM. The encryption key can be rotated without re-encrypting existing data.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Encryption in Transit',
+          title: 'Sensitive Data Kept Out of Logs',
           description:
-            "TLS 1.2+ enforced on all connections. HSTS enabled. Certificate management via Let's Encrypt with automated renewal.",
+            'Phone numbers are masked in logs and error reports, and the text of incoming messages is never logged. Push notification payloads are not logged, since they can contain pet names or clinic-written text.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Data Classification',
+          title: 'Error Monitoring Without Personal Data',
           description:
-            'Four-level classification scheme (Public, Internal, Confidential, Restricted) with defined handling requirements per level.',
+            'Error reports exclude cookies and request bodies, and a scrubber runs before anything is sent. Server error responses to users are generic; the detailed error stays in our internal logs.',
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Data Retention & Deletion',
-          description:
-            'Documented retention schedules per data category. Source code is ephemeral — cloned, scanned, and deleted (never persisted). Configurable report retention. Automated DSAR export and erasure endpoints with anonymization.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Key Lifecycle Management',
-          description:
-            'Versioned encryption key rotation via MultiFernet — new data encrypted with latest key, old data decryptable with any known key. Re-encryption tooling for key migration. KMS integration planned for FIPS 140-2 requirements.',
-          status: 'partial',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
       ],
     },
@@ -192,39 +63,31 @@ export default defineConfig({
       icon: 'eye',
       items: [
         {
-          title: 'Cookie Consent & Tracking',
+          title: 'Data Export and Account Deletion',
           description:
-            'Granular cookie consent with Accept/Reject/Customize options. Three categories (Necessary, Functional, Analytics). Full audit trail with IP, user agent, timestamp, and consent version. DNT signal respected.',
+            'Users can export their data and delete their account, which removes their data. Exceptions: a veterinary clinic with VetFo Pro access may keep a read-only copy of the record it could see when access ends, and support voicemails are kept until an admin deletes them. Both are described in our Privacy Policy and Terms.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Privacy Notices & Transparency',
+          title: 'Independent Communication Preferences',
           description:
-            'Privacy Policy, Cookie Policy, and Data Processing Agreement published. Data collection practices disclosed per GDPR Articles 13-14 and CCPA requirements.',
+            'Marketing messages, SMS, and AI data sharing are each opt-in and can be changed separately. SMS STOP and HELP requests are honored. Marketing unsubscribe links work with one click.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Data Subject Request Handling',
-          description:
-            'Admin API endpoints for data export (GDPR Article 15) and erasure (GDPR Article 17) with full user data portability. Anonymization preserves audit trail while removing PII. Session invalidation on erasure.',
+          title: 'Cookie Consent',
+          description: 'The VetFo app shows a cookie consent banner.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Data Protection Impact Assessments',
+          title: 'Owner Control of Shared Records',
           description:
-            'Formal DPIA process (FIMIL-DPIA-001) per GDPR Article 35 with six defined trigger criteria, step-by-step assessment methodology, fillable template with risk matrix, DPO review and sign-off workflow, and maintained DPIA register.',
+            "Pet owners decide who can see a pet's record. Access given to a clinic, groomer, or kennel can be removed at any time. Shared links can expire, and a link can only add entries, never change or delete existing ones. Anything added through a link is labeled as unverified.",
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'International Data Transfers',
-          description:
-            'We require a data processing agreement with each subprocessor that processes customer data and execute one where the vendor offers it. EU/UK Standard Contractual Clauses (Module Two) and the UK IDTA are incorporated into our customer DPA; annex completion is in progress.',
-          status: 'partial',
-          lastVerified: 'June 2026',
+          lastVerified: VERIFIED,
         },
       ],
     },
@@ -233,80 +96,46 @@ export default defineConfig({
       icon: 'lock',
       items: [
         {
-          title: 'Role-Based Access Control',
+          title: 'Managed Sign-In',
           description:
-            'Five-level RBAC hierarchy enforced at every API endpoint. Tenant-level isolation with row-level data separation.',
+            'Sign-in uses OpenID Connect with PKCE through Kinde, with a signed, expiring state value and a nonce checked on every callback. VetFo does not store passwords.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Authentication Security',
+          title: 'Multi-Factor Authentication',
           description:
-            'Strong password policy (12+ chars, Argon2id hashing), TOTP-based MFA with recovery codes, account lockout after failed attempts, automated brute force and credential stuffing detection. OAuth2/OIDC federation supported for customer SSO.',
+            'Users can turn on MFA by text message or email. Wrong codes are limited, and repeated failures lock the account for a period. Admin accounts must have MFA to use admin tools.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Privileged Access Management',
+          title: 'Record-Level Authorization',
           description:
-            'Privileged operations logged with full attribution. Impersonation restricted with 1-hour session caps and complete audit trail.',
+            "Every request that touches a pet's data is checked against that pet's owners, shares, and professional grants. A request for a pet the user cannot access gets the same answer as one for a pet that does not exist.",
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Access Reviews',
+          title: 'Role-Scoped Professional Access',
           description:
-            'Automated access review reports via operator portal: stale user detection (90+ days inactive), unused API token auditing, privileged user inventory across tenants. Automated deprovisioning on account deactivation with bulk token revocation.',
+            'Veterinary clinics, groomers, and kennels see only what their role needs. Cost and billing figures, uploaded documents, expenses, and AI insights are never included. Business staff can change only entries their own business added.',
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-      ],
-    },
-    {
-      domain: 'Infrastructure Security',
-      icon: 'server',
-      items: [
-        {
-          title: 'Container Hardening',
-          description:
-            'All containers run as non-root with read-only filesystems, dropped capabilities, and no-new-privileges flag. Scanner containers are fully network-isolated.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Network Segmentation',
+          title: 'Accepted Invitations',
           description:
-            'Kubernetes network policies enforce strict pod-to-pod communication rules. Scanner workloads run with no network access.',
+            'Joining a family plan or receiving a transferred pet requires the recipient to accept an invitation sent to their account email. Invitations expire after 14 days.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Runtime Monitoring',
+          title: 'Audit Logging',
           description:
-            'Falco-based runtime security monitoring with custom detection rules for process anomalies, file integrity changes, and container drift.',
+            'Administrator actions, support calls, and professional access to records are recorded in an audit log, with phone numbers masked.',
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Vulnerability Management',
-          description:
-            'Container image scanning (Trivy) in CI/CD blocks deployment on critical vulnerabilities. SAST scanning (Semgrep, Bandit) runs on own codebase via GitHub Actions. Fimil scans its own repositories through the platform.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Asset Inventory',
-          description:
-            'Formal asset register (FIMIL-AM-001) with 25+ assets classified across infrastructure, software, data, external services, and code repositories. Quarterly review cycle with ownership tracking and lifecycle management.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Web Application Firewall',
-          description:
-            'Cloudflare WAF deployed with managed rulesets for OWASP Top 10 protection, bot management, and rate limiting at the edge.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
       ],
     },
@@ -315,93 +144,39 @@ export default defineConfig({
       icon: 'code',
       items: [
         {
-          title: 'Secure Development Lifecycle',
+          title: 'Webhook Signature Verification',
           description:
-            'CI pipeline enforces linting, testing, type checking, SAST (Semgrep, Bandit), and container scanning. Pre-commit hooks catch issues before code reaches the repository. Fimil scans its own repositories through the platform.',
+            'Incoming webhooks from Stripe, Twilio, and Resend are verified by signature before any data in them is used.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Input Validation & Injection Prevention',
+          title: 'Server-Side Request Forgery Protection',
           description:
-            'Pydantic schema validation on all API inputs. ORM-based parameterized queries prevent SQL injection. CSRF protection via double-submit cookie pattern.',
+            'Requests the server makes to addresses supplied by users, such as a clinic software connection, are checked at connection time against private, loopback, and cloud-metadata address ranges, and every redirect is checked again.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Secret Management',
+          title: 'Abuse and Rate Limiting',
           description:
-            'Sealed secrets for production credentials. API tokens stored as SHA256 hashes. Secret scanning in pre-commit hooks and CI pipeline.',
+            'Sharing by text or email, share-code and invite redemption, public links, and record requests are limited per account, per recipient, and per IP address.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Rate Limiting & Abuse Prevention',
+          title: 'Upload Validation',
           description:
-            'Distributed rate limiting per endpoint category. Automated brute force detection and IP blocking. Credential stuffing detection with alerting.',
+            'Files received from clinics are identified by their contents rather than their filename, restricted to documents and images, size limited, and de-duplicated.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Threat Modeling',
+          title: 'Versioned Database Migrations',
           description:
-            'Formal threat model (FIMIL-TM-001) using STRIDE methodology covering the three highest-risk areas: scanner execution pipeline, authentication & session management, and multi-tenant data isolation. 16 threats identified with likelihood/impact scoring and prioritized remediation. Reviewed annually or upon significant architecture change.',
+            'Database changes ship as reviewed, versioned migration files that are applied automatically and never edited after release.',
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-      ],
-    },
-    {
-      domain: 'Incident Response',
-      icon: 'alert-triangle',
-      items: [
-        {
-          title: 'Incident Response Plan',
-          description:
-            'Documented IR plan with four severity levels, defined response phases, escalation procedures, and communication templates.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Breach Notification',
-          description:
-            'Customer notification procedures documented with defined timelines aligned to GDPR (72-hour) and CCPA requirements.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Audit Logging',
-          description:
-            '40+ security-relevant event types logged with full attribution: actor, tenant, IP, user agent, and request correlation ID.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-      ],
-    },
-    {
-      domain: 'Business Continuity',
-      icon: 'refresh-cw',
-      items: [
-        {
-          title: 'Backup & Recovery',
-          description:
-            'Nightly encrypted backups to offsite storage (S3). Documented restore procedures with RTO of 4 hours and RPO of 24 hours.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'High Availability',
-          description:
-            'Horizontal pod autoscaling with pod disruption budgets. Rolling deployments with zero-downtime guarantee and automatic rollback. Single-region deployment; multi-region failover and Redis HA planned.',
-          status: 'partial',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Disaster Recovery Testing',
-          description:
-            'DR test completed successfully (March 2026). Backup restore validated with documented RTO/RPO. Semi-annual testing schedule established.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
       ],
     },
@@ -410,245 +185,121 @@ export default defineConfig({
       icon: 'link',
       items: [
         {
-          title: 'Vendor Risk Assessment',
+          title: 'Published Subprocessor List',
           description:
-            'Three-tier vendor classification with documented risk assessments for all critical and significant vendors.',
+            'The third parties that process customer data on our behalf are listed on this page, with what each is used for.',
           status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
         {
-          title: 'Data Processing Agreements',
+          title: 'AI Data Sharing Is Opt-In',
           description:
-            'We require a data processing agreement with each vendor that processes customer data and execute one where the vendor offers it; collection of executed DPAs across all subprocessors is in progress. Exit strategies documented for critical vendors.',
-          status: 'partial',
-          lastVerified: 'June 2026',
-        },
-      ],
-    },
-    {
-      domain: 'Governance',
-      icon: 'file-text',
-      items: [
-        {
-          title: 'Policy Framework',
-          description:
-            'Comprehensive policy suite: ISMS, Access Control, Data Governance, Incident Response, Change Management, People Security, Vendor Risk Management.',
+            'AI features, such as scanning vet records and generating health summaries, use Google Gemini. Users control AI data sharing with a separate setting.',
           status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Risk Management',
-          description:
-            'Formal risk assessment methodology with risk register, treatment plans, and annual review cycle.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Independent Security Review',
-          description: 'External penetration test and independent security audit planned.',
-          status: 'planned',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Continuous Compliance Monitoring',
-          description:
-            'Continuous monitoring program with automated controls (Dependabot, Trivy, Falco, Cosign) and scheduled manual reviews (quarterly access reviews, semi-annual DR testing, annual risk assessment). Monthly vulnerability reporting and quarterly ConMon status reports.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-      ],
-    },
-    {
-      domain: 'Supply Chain Security',
-      icon: 'package',
-      items: [
-        {
-          title: 'Software Bill of Materials (SBOM)',
-          description:
-            'Syft integrated as a scanner for customer repositories. SPDX SBOMs generated for all container images in CI/CD pipeline via anchore/sbom-action and retained as build artifacts.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Build Provenance & Attestation',
-          description:
-            'Cryptographic build provenance attestation generated via actions/attest-build-provenance for all container images. GitHub Actions CI/CD provides hosted build platform with OIDC-based identity.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Container Image Signing',
-          description:
-            'All container images signed with Cosign (keyless via Sigstore/Fulcio) after vulnerability scanning passes. Signatures stored alongside images in the container registry.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
-        },
-        {
-          title: 'Dependency Integrity',
-          description:
-            'Lockfiles (package-lock.json, poetry.lock) pin dependency versions. Reachability analysis classifies direct vs. transitive dependencies. Dependabot configured for automated dependency updates across all repositories.',
-          status: 'implemented',
-          lastVerified: 'March 2026',
+          lastVerified: VERIFIED,
         },
       ],
     },
   ],
 
+  // Verify each location against the vendor's current region settings before publishing.
   subprocessors: [
     {
-      name: 'DigitalOcean',
-      purpose: 'Cloud infrastructure (compute, Kubernetes, managed database)',
+      name: 'Railway',
+      purpose: 'Application hosting and databases',
       location: 'United States',
-      dpaUrl: 'https://www.digitalocean.com/legal/data-processing-agreement',
+      dpaUrl: null,
     },
     {
-      name: 'GitHub',
-      purpose: 'Source code hosting, CI/CD, repository integrations',
-      location: 'United States',
-      dpaUrl: 'https://github.com/customer-terms/github-data-protection-agreement',
+      name: 'Kinde',
+      purpose: 'User sign-in and identity',
+      location: 'Region set per Kinde tenant',
+      dpaUrl: null,
     },
     {
       name: 'Stripe',
-      purpose: 'Payment processing and billing',
+      purpose: 'Subscription billing and payment processing',
       location: 'United States',
       dpaUrl: 'https://stripe.com/legal/dpa',
     },
     {
-      name: 'Cloudflare',
-      purpose: 'CDN, DNS, DDoS protection, WAF',
-      location: 'Global (anycast)',
-      dpaUrl: 'https://www.cloudflare.com/cloudflare-customer-dpa/',
+      name: 'RevenueCat',
+      purpose: 'In-app purchases on iOS and Android',
+      location: 'United States',
+      dpaUrl: null,
+    },
+    {
+      name: 'Google (Gemini, Maps, Places)',
+      purpose:
+        'AI features such as record scanning and health summaries, plus maps and nearby vet search',
+      location: 'United States',
+      dpaUrl: 'https://cloud.google.com/terms/data-processing-addendum',
+    },
+    {
+      name: 'Twilio',
+      purpose: 'SMS notifications and support phone calls',
+      location: 'United States',
+      dpaUrl: 'https://www.twilio.com/en-us/legal/data-protection-addendum',
     },
     {
       name: 'Resend',
-      purpose: 'Transactional email delivery',
+      purpose: 'Email delivery, including receiving replies to records requests',
       location: 'United States',
       dpaUrl: 'https://resend.com/legal/dpa',
     },
     {
-      name: 'PostHog',
-      purpose: 'Product analytics (consent-gated)',
+      name: 'OneSignal',
+      purpose: 'Push notifications',
       location: 'United States',
-      dpaUrl: 'https://posthog.com/dpa',
+      dpaUrl: null,
     },
     {
-      name: 'Anthropic',
-      purpose:
-        "LLM inference for AI-assisted security features, including the AI Pentest agent reasoning loop, automated finding triage, code remediation suggestions, and in-app security chat. When the AI Pentest feature is enabled for a target, HTTP response data returned by your authorized target application is processed through Anthropic's API as part of the agent reasoning loop. Per-policy runtime redaction is applied before transmission to minimize exposure of sensitive data surfaced during testing.",
+      name: 'Sentry',
+      purpose: 'Error monitoring, with cookies and request bodies excluded',
       location: 'United States',
-      dpaUrl: 'https://www.anthropic.com/legal/commercial-terms',
+      dpaUrl: 'https://sentry.io/legal/dpa/',
     },
     {
-      name: 'GitLab',
-      purpose: 'Source-code integration (OAuth) for repositories hosted on GitLab',
-      location: 'United States',
-      dpaUrl: 'https://about.gitlab.com/privacy/',
-    },
-    {
-      name: 'Atlassian (Bitbucket)',
-      purpose: 'Source-code integration (OAuth) for repositories hosted on Bitbucket',
+      name: 'Cloudflare R2',
+      purpose: 'Storage for uploaded pet documents and support voicemails',
       location: 'Global',
-      dpaUrl: 'https://www.atlassian.com/legal/data-processing-addendum',
-    },
-    {
-      name: 'Telegram',
-      purpose: 'Operational alert delivery for security and scope-guard events',
-      location: 'Global',
-      dpaUrl: 'https://telegram.org/privacy',
+      dpaUrl: 'https://www.cloudflare.com/cloudflare-customer-dpa/',
     },
   ],
 
   documents: {
-    privacyPolicy: 'https://fimil.dev/legal/privacy-policy',
-    termsOfService: 'https://fimil.dev/legal/terms-of-service',
-    masterSubscriptionAgreement: 'https://fimil.dev/legal/master-subscription-agreement',
-    aiPentestAddendum: 'https://fimil.dev/legal/ai-pentest-addendum',
-    dataProcessingAgreement: 'https://fimil.dev/legal/data-processing-agreement',
-    serviceLevelAgreement: 'https://fimil.dev/legal/service-level-agreement',
-    acceptableUsePolicy: 'https://fimil.dev/legal/acceptable-use-policy',
-    cookiePolicy: 'https://fimil.dev/legal/cookie-policy',
-    securityPolicy: 'https://fimil.dev/legal/security-policy',
-    subprocessors: 'https://fimil.dev/legal/subprocessors',
+    privacyPolicy: 'https://vetfo.us/privacy',
+    termsOfService: 'https://vetfo.us/terms',
   },
 
   contact: {
     heading: 'Have security questions?',
     description:
-      "We're happy to answer security questionnaires, provide additional documentation, or schedule a call to discuss our security posture.",
+      'Email us a question, a security questionnaire, or a vulnerability report and we will respond.',
     cta: {
       label: 'Contact Security Team',
-      href: 'mailto:security@fimil.dev',
+      href: 'mailto:security@vetfo.us',
     },
     questionnaireUrl: null,
     prefilledQuestionnaireUrl: null,
   },
 
   seo: {
-    title: 'Fimil Trust Center',
+    title: 'VetFo Trust Center',
     description:
-      "Learn about Fimil's security controls, compliance posture, and data protection practices.",
-    ogImage: '/og-trust-center.png',
+      "How VetFo protects pet owners' and veterinary professionals' data: security controls, privacy practices, and subprocessors.",
+    ogImage: '/og-image.jpg',
   },
 
-  lastReviewed: 'June 2026',
-  subprocessorsLastUpdated: 'June 2026',
+  lastReviewed: VERIFIED,
+  subprocessorsLastUpdated: VERIFIED,
   questionnaires: questionnaireMeta,
 
   changelog: [
     {
-      date: '2026-03-18',
-      title: 'TOTP MFA implemented',
-      description: 'Two-step login with encrypted secrets and recovery codes',
-    },
-    {
-      date: '2026-03-18',
-      title: 'Argon2id password hashing',
-      description: 'Migrated from bcrypt with transparent rehash on login',
-    },
-    {
-      date: '2026-03-18',
-      title: 'SLSA Build L2 provenance',
-      description: 'Build attestation, SPDX SBOMs, and Cosign image signing in CI/CD',
-    },
-    {
-      date: '2026-03-18',
-      title: 'Cloudflare WAF deployed',
-      description: 'Managed rulesets for OWASP Top 10 protection',
-    },
-    {
-      date: '2026-03-18',
-      title: 'DR test completed successfully',
-      description: 'Backup restore validated with documented RTO/RPO',
-    },
-    {
-      date: '2026-03-18',
-      title: 'DSAR automation',
-      description: 'GDPR data export and erasure admin endpoints',
-    },
-    {
-      date: '2026-03-18',
-      title: 'Threat model published',
-      description: 'STRIDE methodology covering scanner pipeline, auth, and multi-tenancy',
-    },
-    {
-      date: '2026-03-18',
-      title: 'GPG signed commits required',
-      description: 'Branch protection with required CI checks on all repositories',
-    },
-    {
-      date: '2026-03-16',
-      title: 'Dependabot configured',
-      description: 'Automated dependency updates across all repositories',
-    },
-    {
-      date: '2026-03-16',
-      title: 'Encryption key rotation',
-      description: 'MultiFernet versioned keys with re-encryption tooling',
-    },
-    {
-      date: '2026-03-14',
-      title: 'Compliance documentation suite',
-      description: '15 policy documents for ISO 27001 and SOC 2 readiness',
+      date: '2026-10-12',
+      title: 'Trust Center launched',
+      description: 'First public version of the VetFo Trust Center',
     },
   ],
 });

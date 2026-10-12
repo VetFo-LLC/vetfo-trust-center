@@ -93,7 +93,7 @@ const canonicalUrl = new URL(Astro.url.pathname, Astro.site);
   </head>
   <body class="min-h-screen bg-white text-gray-900 dark:bg-gray-950 dark:text-gray-100">
     <slot />
-    <CookieConsent />
+    {import.meta.env.PUBLIC_POSTHOG_KEY && <CookieConsent />}
 
     {/* Scroll reveal observer */}
     <script is:inline>

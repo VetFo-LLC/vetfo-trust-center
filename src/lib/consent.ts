@@ -6,7 +6,7 @@
 import { disableAnalytics, enableAnalytics, isDNTEnabled } from './analytics';
 
 export const CONSENT_VERSION = 1;
-const STORAGE_KEY = 'fimil_cookie_consent';
+const STORAGE_KEY = 'vetfo_cookie_consent';
 
 export interface ConsentState {
   functional: boolean;
