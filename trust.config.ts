@@ -214,7 +214,7 @@ export default defineConfig({
       name: 'Kinde',
       purpose: 'User sign-in and identity',
       location: 'Region set per Kinde tenant',
-      dpaUrl: 'https://docs.kinde.com/trust-center/privacy-and-compliance/gdpr/',
+      dpaUrl: null,
     },
     {
       name: 'Stripe',
