@@ -111,7 +111,7 @@ function addCoverPage(
   doc.rect(0, 0, pageWidth, 4, 'F');
 
   // Logo
-  const logoPath = path.join(process.cwd(), 'public', 'logo-icon.png');
+  const logoPath = path.join(process.cwd(), 'public', 'logo.png');
   let logoBase64: string | null = null;
   try {
     const logoData = fs.readFileSync(logoPath);
@@ -121,14 +121,16 @@ function addCoverPage(
   }
 
   if (logoBase64) {
-    const logoSize = 24;
+    // VetFo's logo is 2:1 (726x363), so draw it twice as wide as it is tall.
+    const logoHeight = 24;
+    const logoWidth = logoHeight * 2;
     doc.addImage(
       `data:image/png;base64,${logoBase64}`,
       'PNG',
-      centerX - logoSize / 2,
+      centerX - logoWidth / 2,
       30,
-      logoSize,
-      logoSize,
+      logoWidth,
+      logoHeight,
     );
   }
 

@@ -8,32 +8,14 @@ import { test, expect, type Page } from "@playwright/test";
  */
 
 // Routes that must return a 2xx and render.
-const PAGES = [
-  "/",
-  "/questionnaires/mvsp",
-  "/questionnaires/caiq",
-  "/questionnaires/vsa-full",
-  "/questionnaires/vsa-core",
-];
+const PAGES = ["/"];
 
 // Index sections rendered from trust.config.ts (see src/pages/index.astro).
-const INDEX_SECTIONS = [
-  "#compliance",
-  "#controls",
-  "#architecture",
-  "#subprocessors",
-  "#documents",
-  "#questionnaires",
-];
+// #compliance and #questionnaires are hidden while VetFo lists no frameworks or questionnaires.
+const INDEX_SECTIONS = ["#controls", "#architecture", "#subprocessors", "#documents"];
 
 // Generated downloads (scripts/generate-pdfs.ts → public/downloads/).
-const PDFS = [
-  "/downloads/vetfo-compliance-report.pdf",
-  "/downloads/questionnaire-mvsp.pdf",
-  "/downloads/questionnaire-caiq.pdf",
-  "/downloads/questionnaire-vsa-full.pdf",
-  "/downloads/questionnaire-vsa-core.pdf",
-];
+const PDFS = ["/downloads/vetfo-compliance-report.pdf"];
 
 function trackConsoleErrors(page: Page): string[] {
   const errors: string[] = [];
@@ -72,8 +54,8 @@ test.describe("trust-center pages", () => {
     await expect(desc).toHaveAttribute("content", /\S+/);
   });
 
-  test("questionnaire pages expose a PDF download link", async ({ page }) => {
-    await page.goto("/questionnaires/mvsp", { waitUntil: "domcontentloaded" });
+  test("index exposes the compliance report download link", async ({ page }) => {
+    await page.goto("/", { waitUntil: "domcontentloaded" });
     await expect(page.locator('a[href$=".pdf"]').first()).toBeVisible();
   });
 });
