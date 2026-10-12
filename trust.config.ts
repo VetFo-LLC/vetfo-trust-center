@@ -208,13 +208,13 @@ export default defineConfig({
       name: 'Railway',
       purpose: 'Application hosting and databases',
       location: 'United States',
-      dpaUrl: null,
+      dpaUrl: 'https://railway.com/legal/dpa',
     },
     {
       name: 'Kinde',
       purpose: 'User sign-in and identity',
       location: 'Region set per Kinde tenant',
-      dpaUrl: null,
+      dpaUrl: 'https://docs.kinde.com/trust-center/privacy-and-compliance/gdpr/',
     },
     {
       name: 'Stripe',
@@ -226,7 +226,7 @@ export default defineConfig({
       name: 'RevenueCat',
       purpose: 'In-app purchases on iOS and Android',
       location: 'United States',
-      dpaUrl: null,
+      dpaUrl: 'https://www.revenuecat.com/dpa',
     },
     {
       name: 'Google (Gemini, Maps, Places)',
@@ -251,7 +251,7 @@ export default defineConfig({
       name: 'OneSignal',
       purpose: 'Push notifications',
       location: 'United States',
-      dpaUrl: null,
+      dpaUrl: 'https://onesignal.com/dpa',
     },
     {
       name: 'Sentry',
