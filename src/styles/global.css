@@ -59,3 +59,19 @@ body {
     transition: none;
   }
 }
+
+/* Readability on the dark theme: the template's dimmer grays (gray-400/500/600)
+   are hard to read on near-black, so lift them while keeping the hierarchy
+   (body > muted > faint). All stay well above WCAG AA (4.5:1) on gray-950. */
+.dark .dark\:text-gray-600 {
+  color: #9ca3af;
+}
+.dark .dark\:text-gray-500 {
+  color: #b8bfca;
+}
+.dark .dark\:text-gray-400 {
+  color: #cbd1da;
+}
+.dark .dark\:text-gray-300 {
+  color: #e2e6ec;
+}
